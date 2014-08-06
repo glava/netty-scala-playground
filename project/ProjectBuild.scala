@@ -3,9 +3,12 @@ import sbt.Keys._
  
 object ProjectBuild extends Build {
 	
+    resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
+
 	val scalaz      = "org.scalaz" %% "scalaz-core" % "7.0.6"
 	val scalatest   = "org.scalatest" %% "scalatest" % "2.1.6"
-  val netty       = "io.netty" % "netty" % "3.9.2.Final"
+    val netty       = "io.netty" % "netty" % "3.9.2.Final"
+    val akka        = "com.typesafe.akka" %% "akka-actor" % "2.3.4"
  
 	val sharedSettings = (
         Defaults.defaultSettings
@@ -32,7 +35,8 @@ object ProjectBuild extends Build {
         libraryDependencies ++= Seq(
         	scalaz,
         	scalatest,
-          netty
+            netty,
+            akka
             )
         )
  
